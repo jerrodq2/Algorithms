@@ -1,11 +1,7 @@
+var Node = require('./bst_node')
 var BST = (function(){
   function BST(){// My implementation of BST assumes the possibility of duplicates unless otherwise stated
     this.root = null
-  }
-  function Node(value){
-    this.val = value
-    this.left = null
-    this.right = null
   }
 
   BST.prototype.add = function(val){//accepts value and inserts new node into tree, if there is a duplicate we will put it on the right side of the original value
