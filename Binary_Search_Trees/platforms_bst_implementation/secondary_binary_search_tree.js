@@ -13,24 +13,31 @@ var BST = (function(){
       this.root = n
       return
     }
-    var current = this.root
+    var current = this.root, previous
     while(current){
       if(current.val == data){
         return//we don't want any duplicates
       } else if(current.val < data){
+        previous = current
         current = current.right
       } else{
+        previous = current
         current = current.left
       }
     }//end while
-    current = n// by this point we reached a null position in the tree, where no node exists but where our data belongs
+    if(previous.val < data){//by this point current is at an empty spot, where we want to insert the new node, but it has to be attached to it's soon to be parent node (previous), we just have to see which side to put it on
+      previous.right = n
+    } else{
+      previous.left = n
+    }
   }//end of insert
 
 
 //definition wasn't clear but I'm assuming these next 3 methods, inorder, postorder, and preorder as just practice moving about the tree, and not actually affecing it in any way, i'll just display all the values
   function searchSubTree(root){//used in the next 3 methods, inOrder, postOrder, and preOrder
-    if(!root)
+    if(!root){
       return
+    }
     console.log(root.val)
     searchSubTree(root.right)
     searchSubTree(root.left)
@@ -67,3 +74,10 @@ var BST = (function(){
 })();
 
 module.exports = BST
+var first = new BST()
+first.insert(5)
+first.insert(1)
+first.insert(4)
+first.insert(8)
+first.insert(7)
+// first.inOrder()
