@@ -4,7 +4,7 @@ var SLL = (function(){
     this.root = null
   }
 
-  SSL.prototype.display = function(){//simple method to see what's in the tree
+  SLL.prototype.display = function(){//simple method to see what's in the tree
     if(!this.root)
       return
     var current = this.root
@@ -15,10 +15,12 @@ var SLL = (function(){
   }
 
 
-  BST.prototype.add = function(val){//adds a node with the given value to the end of a list
+  SLL.prototype.add = function(val){//adds a node with the given value to the end of a list
     var node = new Node(val)
-    if(!this.root)
+    if(!this.root){
       this.root = node
+      return
+    }
     var current = this.root
     while(current.next){
       current = current.next
@@ -26,7 +28,7 @@ var SLL = (function(){
     current.next = node
   }
 
-  BST.prototype.contains = function(val){//returns boolean based on if the given val is in the list
+  SLL.prototype.contains = function(val){//returns boolean based on if the given val is in the list
     if(!this.root)
       return false
     var current = this.root
@@ -39,7 +41,7 @@ var SLL = (function(){
   }
 
 
-  BST.prototype.remove = function(val){//given a val, find a node in the list that contians that val and remove the node, return false if not found
+  SLL.prototype.remove = function(val){//given a val, find a node in the list that contians that val and remove the node, return false if not found
     if(!this.root)
       return false
     var current = this.root
@@ -65,4 +67,15 @@ var SLL = (function(){
   return SLL
 })()
 
+// var ex = new SLL
+// ex.add(1)
+// ex.add(9)
+// ex.add(3)
+// ex.add('hey')
+// ex.add(6)
+// ex.add('oh')
+// ex.remove(3)
+// ex.display()
+// console.log(ex.contains(1))
+// console.log(ex.contains(2))
 module.exports = SLL
