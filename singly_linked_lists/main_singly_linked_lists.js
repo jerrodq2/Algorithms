@@ -1,4 +1,4 @@
-var Node = require('./ssl_node')
+var Node = require('./sll_node')
 var SLL = (function(){
   function SLL(){
     this.root = null
