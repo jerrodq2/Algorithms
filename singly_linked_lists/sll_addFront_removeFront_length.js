@@ -1,4 +1,4 @@
-var Node = require('./ssl_node')
+var Node = require('./sll_node')
 var SLL = require('./main_singly_linked_lists')
 
 
